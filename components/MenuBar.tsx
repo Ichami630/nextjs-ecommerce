@@ -109,7 +109,7 @@ export default function MenuBar() {
                 <span className="font-bold text-gray-800 text-sm flex items-center ml-2">SHOP BY CATEGORIES</span>
             </div>
             {shopCatHover && (
-                <div className="absolute left-0 top-3 mt-2 bg-gray-800 shadow-lg border w-48 py-2">
+                <div className="absolute left-0 top-3 mt-2 bg-gray-800 shadow-lg border w-48 py-2 z-50">
                     <div className="flex flex-col space-y-2 text-white">
                         <Link href="/accessories" className="hover:text-primary px-4 flex items-center py-2 border-b border-gray-400">Store
                         </Link>

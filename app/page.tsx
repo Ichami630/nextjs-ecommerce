@@ -1,8 +1,12 @@
 // import Image from "next/image";
 
+import Slider from "../components/Slider";
+
 export default function page() {
   return (
-    <div className="text-center text-gray-950 text-4xl">page</div>
+    <>
+      <Slider />
+    </>
   )
 }
 

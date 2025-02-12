@@ -14,6 +14,23 @@ html, body {
 main {
   flex-grow: 1;
 }
+.swiper-pagination-bullet {
+  background: gray !important;  /* Default color */
+  width: 10px;
+  height: 10px;
+  opacity: 0.7;
+}
+
+/* Change Swiper Navigation Button Colors */
+.swiper-button-prev, .swiper-button-next {
+  color: white !important;  /* Change to any color */
+  
+}
+
+/* Hover effect */
+.swiper-button-prev:hover, .swiper-button-next:hover {
+  color: #FFC000 !important;
+}
 
 @tailwind base;
 @tailwind components;
