@@ -13,7 +13,7 @@ module.exports = {
       },
       fontFamily: {
         body: ['poppins']
-      }
+      },
     },
   },
   plugins: [],

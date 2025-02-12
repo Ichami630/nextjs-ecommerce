@@ -44,7 +44,7 @@ const LatestProducts: React.FC = () => {
 
   return (
     <div className="mt-10 mx-auto px-4 mb-10">
-      <h2 className="font-extrabold text-4xl text-center mb-10">Latest Products</h2>
+      <h2 className="font-extrabold text-3xl text-center mb-10">Latest Products</h2>
       <div className="grid grid-cols-2 lg:grid-cols-4">
         {products.map((product)=>(
             <ProductCard key={product.id} product={product} />
