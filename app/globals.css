@@ -32,6 +32,22 @@ main {
   color: #FFC000 !important;
 }
 
+/* Custom Scrollbar */
+.scrollbar::-webkit-scrollbar {
+  height: 8px; /* Controls thickness */
+}
+.scrollbar::-webkit-scrollbar-track {
+  background: #1a202c; /* Dark background */
+}
+.scrollbar::-webkit-scrollbar-thumb {
+  background: #4a5568; /* Gray thumb */
+  border-radius: 10px;
+}
+.scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #718096; /* Lighter gray on hover */
+}
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

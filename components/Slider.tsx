@@ -1,6 +1,6 @@
 "use client";
 
-// import Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay, EffectCoverflow} from "swiper/modules";
@@ -85,6 +85,35 @@ const Hero: React.FC = () => {
           </SwiperSlide>
         ))}
       </Swiper>
+
+      {/*brands */}
+      <div className="w-full shadow-md bg-gray-900 pt-10">
+        <div className="flex overflow-x-auto scrollbar scrollbar-thumb-gray-500 scrollbar-track-gray-800 px-4 space-x-20">
+          {[
+            { name: "Gears", icon: "/gear.png", link: "/product/gear/" },
+            { name: "Spanner", icon: "/gear.png", link: "/product/spanner/" },
+            { name: "Brakes", icon: "/gear.png", link: "/product/brakes/" },
+            { name: "Batteries", icon: "/gear.png", link: "/product/battery/" },
+            { name: "Tires", icon: "/gear.png", link: "/product/tires/" },
+            { name: "Gears", icon: "/gear.png", link: "/product/gear/" },
+            { name: "Spanner", icon: "/gear.png", link: "/product/spanner/" },
+            { name: "Brakes", icon: "/gear.png", link: "/product/brakes/" },
+            { name: "Batteries", icon: "/gear.png", link: "/product/battery/" },
+            { name: "Tires", icon: "/gear.png", link: "/product/tires/" },
+            { name: "Gears", icon: "/gear.png", link: "/product/gear/" },
+          ].map((item, index) => (
+            <div key={index} className="flex flex-col items-center space-y-4 pb-4">
+              <Link href={item.link}>
+                <Image src={item.icon} alt={item.name} title={item.name} width={50} height={50} />
+              </Link>
+              <Link href={item.link}>
+                <div className="text-white">{item.name}</div>
+              </Link>
+            </div>
+          ))}
+        </div>
+      </div>
+
     </div>
   );
 };
