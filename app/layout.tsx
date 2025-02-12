@@ -1,6 +1,7 @@
 import Navbar from '../components/Navbar';
 import { ReactNode } from 'react';
 import "./globals.css";
+import Footer from '../components/Footer';
 
 interface props {
   children: ReactNode;
@@ -13,9 +14,11 @@ export default function Layout({ children }:props) {
         <header>
         <Navbar />
         </header>
-        <main>{children}</main>
+        <div className="flex flex-col min-h-screen">
+          <main className="flex-grow">{children}</main>
+        </div>
         <footer>
-          <p className=''>© 2024 My Ecommerce App</p>
+          <Footer />
         </footer>
       </body>
     </html>
