@@ -67,7 +67,7 @@ export default function MenuBar() {
                     <Search size={25} className="hover:text-primary text-gray-500" onClick={()=> setIsOpen(true)}/>
                 </div>
                 {/* Headless UI Modal */}
-                <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
                     <Dialog.Panel className="bg-white p-4 rounded-lg w-3/4 max-w-md shadow-lg relative">
                         {/* Close Button */}
                         <button className="absolute top-0 right-2 text-gray-500 hover:text-gray-800" onClick={() => setIsOpen(false)}>
