@@ -25,7 +25,7 @@ function DealOfWeek() {
     }
     return (
         <div className="px-4 mb-10">
-          <h2 className="font-extrabold text-3xl text-center mb-10">Deal Of The Week</h2>
+          <h2 className="font-extrabold text-3xl text-center mb-10">Deals Of The Week</h2>
             <div className="grid grid-cols-2 lg:grid-cols-4">
                 {validDeals.map((product)=>(
                     <ProductCard key={product.id} product={product} showCountDown={true} />

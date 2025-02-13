@@ -2,6 +2,7 @@ import Navbar from '../components/Navbar';
 import { ReactNode } from 'react';
 import "./globals.css";
 import Footer from '../components/Footer';
+import Newsletter from '../components/Newsletter';
 
 interface props {
   children: ReactNode;
@@ -18,6 +19,7 @@ export default function Layout({ children }:props) {
           <main className="flex-grow">{children}</main>
         </div>
         <footer>
+          <Newsletter />
           <Footer />
         </footer>
       </body>
