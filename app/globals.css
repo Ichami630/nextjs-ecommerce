@@ -50,6 +50,22 @@ main {
   background: #718096; /* Lighter gray on hover */
 }
 
+/*image zoom css*/
+.zoom-container{
+  overflow: hidden;
+  width: 400px;
+  height: 400px;
+  position: relative;
+}
+.normal-zoom {
+  transition: transform 0.3s ease;
+}
+
+.full-zoom {
+  transform: scale(1.5);
+  transition: transform 0.3s ease;
+}
+
 
 @tailwind base;
 @tailwind components;
