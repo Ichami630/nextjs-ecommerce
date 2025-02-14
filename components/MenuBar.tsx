@@ -141,12 +141,12 @@ export default function MenuBar() {
                     <ChevronDown size={14} className="font-light ml-1"/>
                 </div>
                 <div className="flex items-end hover:text-primary">
-                <Link href="/products">PRODUCTS</Link>
+                <Link href="/product">PRODUCTS</Link>
                 <div className="rounded-md ml-1 px-1 text-white font-extralight bg-tertiary text-xs">HOT</div>
                     <ChevronDown size={14} className="font-light ml-1"/>
                 </div>
                 <div className="flex items-end hover:text-primary">
-                <Link href="/products">TOP DEALS</Link>
+                <Link href="/product">TOP DEALS</Link>
                     <ChevronDown size={14} className="font-light ml-1"/>
                 </div>
             </nav>

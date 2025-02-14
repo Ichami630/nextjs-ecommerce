@@ -6,7 +6,7 @@ const products = [
     image: "/banner2.jpg",
     title: "Pilot Automotive Universal Fit Black With Red Trim",
     price: "$79",
-    link: "/product/1",
+    link: "/product",
     stars: 5,
     percentageDiscount: 0
   },
@@ -15,7 +15,7 @@ const products = [
     image: "/banner1.jpg",
     title: "Pilot Automotive Universal Fit Black With Red Trim",
     price: "$79",
-    link: "/product/2",
+    link: "/product",
     stars: 5,
     percentageDiscount: 25
   },
@@ -24,7 +24,7 @@ const products = [
     image: "/banner2.jpg",
     title: "Pilot Automotive Universal Fit Black With Red Trim",
     price: "$79",
-    link: "/product/3",
+    link: "/product",
     stars: 3,
     percentageDiscount: 50,
     test: 1
@@ -34,7 +34,7 @@ const products = [
     image: "/banner1.jpg",
     title: "Pilot Automotive Universal Fit Black With Red Trim",
     price: "$79",
-    link: "/product/4",
+    link: "/product",
     stars: 3,
     percentageDiscount: 0
   },

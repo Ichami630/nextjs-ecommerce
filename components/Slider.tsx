@@ -90,8 +90,8 @@ const Hero: React.FC = () => {
       <div className="w-full shadow-md bg-gray-900 pt-10">
         <div className="flex overflow-x-auto scrollbar scrollbar-thumb-gray-500 scrollbar-track-gray-800 px-4 space-x-20">
           {[
-            { name: "Gears", icon: "/gear.png", link: "/product/gear/" },
-            { name: "Spanner", icon: "/gear.png", link: "/product/spanner/" },
+            { name: "plugs", icon: "/plug.png", link: "/product/gear/" },
+            { name: "Spanner", icon: "/plug.png", link: "/product/spanner/" },
             { name: "Brakes", icon: "/gear.png", link: "/product/brakes/" },
             { name: "Batteries", icon: "/gear.png", link: "/product/battery/" },
             { name: "Tires", icon: "/gear.png", link: "/product/tires/" },

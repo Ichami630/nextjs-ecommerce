@@ -2,16 +2,48 @@ import React from 'react'
 import ProductCard from './ProductCard';
 
 function DealOfWeek() {
-    const products = [{
-        id: 1,
-        image: "/banner1.jpg", // Replace with actual image path
-        title: "Limited Edition Sneakers",
-        price: "$99.99",
-        link: "/product/1",
-        stars: 4,
-        percentageDiscount: 20,
-        dealExpiry: "2025-02-20T23:59:59", // Example expiry date (YYYY-MM-DDTHH:mm:ss)
-    }];
+    const products = [
+        {
+            id: 1,
+            image: "/banner1.jpg", // Replace with actual image path
+            title: "Limited Edition Sneakers",
+            price: "$59.99",
+            link: "/product",
+            stars: 5,
+            percentageDiscount: 25,
+            dealExpiry: "2025-12-20T23:59:59", // Example expiry date (YYYY-MM-DDTHH:mm:ss)
+        },
+        {
+            id: 2,
+            image: "/banner1.jpg", // Replace with actual image path
+            title: "Limited Edition Sneakers",
+            price: "$99.99",
+            link: "/product",
+            stars: 3,
+            percentageDiscount: 50,
+            dealExpiry: "2025-05-20T23:59:59", // Example expiry date (YYYY-MM-DDTHH:mm:ss)
+        },
+        {
+            id: 3,
+            image: "/banner2.jpg", // Replace with actual image path
+            title: "Limited Edition Sneakers",
+            price: "$99.99",
+            link: "/product",
+            stars: 4,
+            percentageDiscount: 10,
+            dealExpiry: "2026-05-20T23:59:59", // Example expiry date (YYYY-MM-DDTHH:mm:ss)
+        },
+        {
+            id: 4,
+            image: "/banner1.jpg", // Replace with actual image path
+            title: "Limited Edition Sneakers",
+            price: "$109.99",
+            link: "/product",
+            stars: 5,
+            percentageDiscount: 15,
+            dealExpiry: "2025-06-20T23:59:59", // Example expiry date (YYYY-MM-DDTHH:mm:ss)
+        }
+    ];
 
     //filter out expired products
     const currentTime = new Date().getTime();

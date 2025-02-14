@@ -1,8 +1,9 @@
 'use client';
 import Image from "next/image";
 import Link from "next/link";
-import { Heart, Eye, Star } from "lucide-react";
+import { Heart, Eye} from "lucide-react";
 import { useState,useEffect } from "react";
+import StarRating from "./ui/StarRating";
 
 interface Product {
   id: number;
@@ -74,28 +75,28 @@ const ProductCard: React.FC<{ product: Product; showCountDown?: boolean }> = ({ 
             alt={product.title}
             layout="fill"
             objectFit="cover"
-            className="transition-transform duration-500 ease-in-out hover:scale-105"
+            className="tranxlsition-transform duration-500 ease-in-out hover:scale-105"
           />
         </div>
       </Link>
 
       {/* Countdown Timer - Only for active Deal of the Week */}
       {showCountDown && product.dealExpiry && (timeLeft.days > 0 || timeLeft.hours > 0 || timeLeft.minutes) && (
-        <div className="flex space-x-1 mt-2">
-          <div className="flex flex-col rounded-md px-2 bg-red-100">
+        <div className="flex justify-center md:justify-start md:space-x-1 mt-2">
+          <div className="flex flex-col md:rounded-md px-1 text-center md:px-2 bg-red-100">
             <p className="font-bold text-red-600">{timeLeft.days}</p>
             <p className="font-light text-red-600 text-xs">DAYS</p>
           </div>
-          <div className="flex flex-col rounded-md px-2 bg-red-100">
-            <p className="font-bold text-red-600">{timeLeft.hours}</p>
+          <div className="flex flex-col md:rounded-md px-1 text-center md:px-2 bg-red-100">
+            <p className="font-bold  text-red-600">{timeLeft.hours}</p>
             <p className="font-light text-red-600 text-xs">HRS</p>
           </div>
-          <div className="flex flex-col rounded-md px-2 bg-red-100">
-          <p className="font-bold text-red-600">{timeLeft.minutes}</p>
+          <div className="flex flex-col md:rounded-md px-1 text-center md:px-2 bg-red-100">
+          <p className="font-bold  text-red-600">{timeLeft.minutes}</p>
           <p className="font-light text-red-600 text-xs">MINS</p>
           </div>
-          <div className="flex flex-col rounded-md px-2 bg-red-100">
-            <p className="font-bold text-red-600">{timeLeft.seconds}</p>
+          <div className="flex flex-col md:rounded-md text-center px-1 md:px-2 bg-red-100">
+            <p className="font-bold  text-red-600">{timeLeft.seconds}</p>
             <p className="font-light text-red-600 text-xs">SEC</p>
           </div>
         </div>
@@ -108,15 +109,7 @@ const ProductCard: React.FC<{ product: Product; showCountDown?: boolean }> = ({ 
       <p className="text-primary font-bold">${product.price}</p>
 
       {/* Star Rating */}
-      <div className="flex space-x-1 mt-1">
-        {[...Array(5)].map((_, i) => (
-          <Star
-            key={i}
-            size={10}
-            className={`fill-current ${i < product.stars ? "text-yellow-400" : "text-gray-300"}`}
-          />
-        ))}
-      </div>
+      <StarRating size={12} stars={product.stars} />
 
       {/* Add to Cart Button */}
       <Link
