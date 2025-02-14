@@ -6,6 +6,7 @@ import Image from "next/image";
 import { Heart,ShieldCheck } from "lucide-react";
 import ProductTabs from "../../components/product/ProductTabs";
 import StarRating from "../../components/ui/StarRating";
+import ProductCard from "../../components/ProductCard";
 
 //define the product images interface
 interface Images {
@@ -40,6 +41,46 @@ const images: Images[] = [
     image: "/tes/user2.jpg",
   }
 ]
+
+const products = [
+  {
+    id: 1,
+    image: "/banner2.jpg",
+    title: "Pilot Automotive Universal Fit Black With Red Trim",
+    price: "$79",
+    link: "/product",
+    stars: 5,
+    percentageDiscount: 0
+  },
+  {
+    id: 2,
+    image: "/banner1.jpg",
+    title: "Pilot Automotive Universal Fit Black With Red Trim",
+    price: "$79",
+    link: "/product",
+    stars: 5,
+    percentageDiscount: 25
+  },
+  {
+    id: 3,
+    image: "/banner2.jpg",
+    title: "Pilot Automotive Universal Fit Black With Red Trim",
+    price: "$79",
+    link: "/product",
+    stars: 3,
+    percentageDiscount: 50,
+    test: 1
+  },
+  {
+    id: 4,
+    image: "/banner1.jpg",
+    title: "Pilot Automotive Universal Fit Black With Red Trim",
+    price: "$79",
+    link: "/product",
+    stars: 3,
+    percentageDiscount: 0
+  },
+];
 const productDetails = {
   id: 1,
   brand: "Toyota",
@@ -131,7 +172,15 @@ const SingleProduct: React.FC = () => {
             </div>
           </div>
         </div> 
-        <ProductTabs />     
+        <ProductTabs />
+        <div className="px-4 mb-10">
+          <h2 className="font-extrabold text-2xl text-center mb-10">Related Products</h2>
+          <div className="grid grid-cols-2 lg:grid-cols-4">
+              {products.map((product)=>(
+                  <ProductCard key={product.id} product={product} />
+              ))}
+          </div>
+        </div>     
     </>
   )
 }

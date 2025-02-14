@@ -92,15 +92,12 @@ const Hero: React.FC = () => {
           {[
             { name: "plugs", icon: "/plug.png", link: "/product/gear/" },
             { name: "Spanner", icon: "/plug.png", link: "/product/spanner/" },
-            { name: "Brakes", icon: "/gear.png", link: "/product/brakes/" },
-            { name: "Batteries", icon: "/gear.png", link: "/product/battery/" },
-            { name: "Tires", icon: "/gear.png", link: "/product/tires/" },
-            { name: "Gears", icon: "/gear.png", link: "/product/gear/" },
-            { name: "Spanner", icon: "/gear.png", link: "/product/spanner/" },
-            { name: "Brakes", icon: "/gear.png", link: "/product/brakes/" },
-            { name: "Batteries", icon: "/gear.png", link: "/product/battery/" },
-            { name: "Tires", icon: "/gear.png", link: "/product/tires/" },
-            { name: "Gears", icon: "/gear.png", link: "/product/gear/" },
+            { name: "Brakes", icon: "/plug.png", link: "/product/brakes/" },
+            { name: "Batteries", icon: "/plug.png", link: "/product/battery/" },
+            { name: "Tires", icon: "/plug.png", link: "/product/tires/" },
+            { name: "Gears", icon: "/plug.png", link: "/product/gear/" },
+            { name: "Spanner", icon: "/plug.png", link: "/product/spanner/" },
+            { name: "Brakes", icon: "/plug.png", link: "/product/brakes/" },
           ].map((item, index) => (
             <div key={index} className="flex flex-col items-center space-y-4 pb-4">
               <Link href={item.link}>
