@@ -105,7 +105,7 @@ const ProductCard: React.FC<{ product: Product; showCountDown?: boolean }> = ({ 
       <Link href={product.link} className="hover:text-primary block mt-3">
         {product.title}
       </Link>
-      <p className="text-primary font-bold">{product.price}</p>
+      <p className="text-primary font-bold">${product.price}</p>
 
       {/* Star Rating */}
       <div className="flex space-x-1 mt-1">
