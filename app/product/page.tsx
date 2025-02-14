@@ -4,7 +4,6 @@ import QuantitySelector from "../../components/QuantitySelector";
 import React, { useState } from "react";
 import Image from "next/image";
 import { Star,Heart,ShieldCheck } from "lucide-react";
-import ReactImageMagnify from "react-image-magnify";
 
 //define the product images interface
 interface Images {
@@ -80,27 +79,15 @@ const SingleProduct: React.FC = () => {
             ))}
           </div>
     
-          {/* Active Image Section with Zoom Effect */}
+          {/* Active Image Section */}
           <div className="w-full lg:w-3/4 flex justify-center">
-          <ReactImageMagnify
-            {...{
-              smallImage: {
-                alt: "Active Product",
-                isFluidWidth: true,
-                src: activeImage,
-              },
-              largeImage: {
-                src: activeImage,
-                width: 1200,
-                height: 1200,
-              },
-              enlargedImageContainerDimensions: {
-                width: "150%",
-                height: "150%",
-              },
-              lensStyle: { backgroundColor: "rgba(0,0,0,0.1)" },
-            }}
-          />
+            <Image
+              src={activeImage}
+              alt="Active Product"
+              width={400}
+              height={400}
+              className="object-contain max-w-full h-auto"
+            />
           </div>
           </div>
 
