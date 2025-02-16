@@ -5,13 +5,13 @@ import { MapPin,Calendar, PhoneCall, Mail, Facebook, Instagram,Twitter } from "l
 export default function Footer() {
   return (
     <footer className="bg-black w-full">
-      <div className="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div className="max-w-7xl mx-auto px-6 py-12 text-xs lg:text-sm grid grid-cols-1 md:grid-cols-4 gap-10 overflow-hidden">
         
         {/* Brand Section */}
         <div className="text-white">
           <Link href="/" className="flex items-center space-x-1 flex-shrink-0 mb-6">
             <Image src="/logo.webp" alt="logo" width={70} height={80} className="object-contain w-[120px] h-auto"/>
-            <h2 className="font-bold">MG Smart Trading</h2>
+            <h2 className="font-bold ">MG Smart Trading</h2>
           </Link>
           <p className="text-gray-400">
             Welcome to our store, where we pride ourselves on providing exceptional products and unparalleled customer service, embracing style and innovation.
@@ -49,7 +49,7 @@ export default function Footer() {
               <PhoneCall size={18} /> <span>+8180-3606-4653</span>
             </li>
             <li className="flex items-center gap-2">
-              <Mail size={18} /> <span>fongilberttangu@gmail.com</span>
+              <Mail size={18} /> <span className="text-xs lg:text-sm">fongilberttangu@gmail.com</span>
             </li>
             <li className="flex items-center gap-2">
               <Calendar size={18} /> <span>Monday - Friday, 8am - 6pm</span>
