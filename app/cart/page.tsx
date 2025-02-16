@@ -77,7 +77,7 @@ const page = () => {
                 <p>Total</p>
                 <p className="text-primary font-bold">¥145,000</p>
               </div>
-              <button className="w-full bg-primary text-xs text-center hover:bg-black hover:text-white font-bold px-6 py-3 rounded-full mt-10 lg:mt-16">PROCEED TO CHECKOUT</button>
+              <Link href="/checkout"><button className="w-full bg-primary text-xs text-center hover:bg-black hover:text-white font-bold px-6 py-3 rounded-full mt-10 lg:mt-16">PROCEED TO CHECKOUT</button></Link>
             </div>
           </div>
         </div>
