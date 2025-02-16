@@ -37,7 +37,7 @@ const page = () => {
                             <Image src="/products/nissan.jpeg" width={75} height={50} alt="product" />
                           </Link>
                           <Link href="/product">
-                            <div className="text-gray-700 truncate">Nissan Caravan 2012</div>
+                            <div className="text-gray-700 truncate">Nissan Caravan 2012 FBDFHFWFJBFBHDBJHBJFWHDJHBBJHSDBHBSJHVBDBBJHDSBUVBVSHDUBDBDEWBHDFSB</div>
                           </Link>
                         </div>
                       </td>
