@@ -1,8 +1,9 @@
 'use client';
-import { useState,useRef } from "react"
+import { useState} from "react"
 import { Search,X,Headset,User,ShoppingCart,Heart,AlignJustify,ChevronDown } from "lucide-react"
 import Link from "next/link"
 import { Dialog } from "@headlessui/react";
+import Image from "next/image";
 
 export default function MenuBar() {
     //for modal dialog
@@ -11,7 +12,9 @@ export default function MenuBar() {
     const [menuOpen, setMenuOPen] = useState(false);
     //shop cat hover
     const [shopCatHover, setShopCatHover] = useState(false)
-    const categoryRef = useRef(null);
+
+    //category hover
+    const [catHover, setCatHover] = useState(false);
   return (
     <div className="container mx-auto px-4">
         <div className="flex justify-between mb-10 items-center">
@@ -32,16 +35,18 @@ export default function MenuBar() {
                     </nav>
                 </div>
             )}
-            <div className="logo">
-                <h1 className="font-bold text-xl lg:text-4xl">Autorapid</h1>
-            </div>
+            <Link href="/"><div className="logo flex space-x-0 md:space-x-2 items-center">
+                <Image src="/logo.webp" alt="logo" width={75} height={75} className="object-contain w-[75px] h-auto"/>
+                <h1 className="font-bold text-xs md:text-3xl lg:text-2xl">MG Smart Trading</h1>
+            </div></Link>
             {/* search bar with filter and search icon */}
             <form className="hidden lg:flex flex-grow max-w-lg mx-6 border border-gray-300 bg-gray-300 rounded-full items-center overflow-hidden">
                 <select name="cat" id="cat" className="px-3 py-2 bg-transparent outline-none">
                     <option value="1">All Categories</option>
-                    <option value="2">Accessories</option>
-                    <option value="3">Parts</option>
-                    <option value="4">Wheels</option>
+                    <option value="2">Used Cars</option>
+                    <option value="5">Spear Parts</option>
+                    <option value="3">Household Equi..</option>
+                    <option value="4">Electronics</option>
                 </select>
                 <span className="text-gray-400"> | </span>
                 <input type="text" name="q" id="" placeholder="search..." className="px-3 py-2 flex-1 bg-transparent outline-none"/>
@@ -56,7 +61,7 @@ export default function MenuBar() {
                 <div><Headset size={32} className=" text-gray-500" /></div>
                 <div className="block">
                     <p>Call Now:</p>
-                    <p>0000-000-000</p>
+                    <p>+8180-9808-1863</p>
                 </div>
             </div>
 
@@ -99,56 +104,85 @@ export default function MenuBar() {
             </div>
         </div>
         {/* bottom level nav */}
-        <div className="relative hidden lg:flex mb-5 items-center space-x-8"
-            onMouseEnter={() => setShopCatHover(true)}
-            onMouseLeave={() => setShopCatHover(false)}
-            ref={categoryRef}
-        >
-            <div className="flex cursor-pointer">
+        <div className="relative hidden lg:flex mb-5 items-center space-x-8">
+            <div onMouseEnter={(()=> setShopCatHover(true))} onMouseLeave={(()=>setShopCatHover(false))}>
+                <div className="flex cursor-pointer">
                 <AlignJustify/>
                 <span className="font-bold text-gray-800 text-sm flex items-center ml-2">SHOP BY CATEGORIES</span>
-            </div>
-            {shopCatHover && (
-                <div className="absolute left-0 top-3 mt-2 bg-gray-800 shadow-lg border w-48 py-2 z-50">
+                </div>
+                {shopCatHover && (
+                <div className="absolute left-0 top-3 mt-2 bg-black shadow-lg border w-[300px] py-2 z-50">
                     <div className="flex flex-col space-y-2 text-white">
-                        <Link href="/accessories" className="hover:text-primary px-4 flex items-center py-2 border-b border-gray-400">Store
+                        <Link href="/accessories" className="hover:text-primary px-4 py-2 border-b border-gray-400 truncate whitespace-nowrap ">Used Cars
                         </Link>
                         <div className="flex justify-between items-center border-b border-gray-400 hover:text-primary py-2">
-                            <Link href="/accessories" className="ml-4">Car Parts</Link>
+                            <Link href="/accessories" className="ml-4 block truncate whitespace-nowrap">Car Parts</Link>
                             <ChevronDown size={15} className="mr-4"/>                        
                         </div>
                         <div className="flex justify-between items-center border-b border-gray-400 hover:text-primary py-2">
-                            <Link href="/accessories" className="ml-4">Accessories</Link>
+                            <Link href="/accessories" className="ml-4">Electronics</Link>
                             <ChevronDown size={15} className="mr-4"/>                        
                         </div>
                         <div className="flex justify-between items-center border-b border-gray-400 hover:text-primary py-2">
-                            <Link href="/accessories" className="ml-4">Cars</Link>
+                            <Link href="/accessories" className="ml-4">Household Equipements</Link>
                             <ChevronDown size={15} className="mr-4"/>                        
                         </div>
                     </div>
                 </div>
-            )}
+                )}
+            </div>
             <span className="text-gray-500 font-light"> | </span>
             <nav className="flex justify-between space-x-6 font-bold text-gray-800 text-sm">
                 <Link href="/" className="hover:text-primary">HOME</Link>
-                <div className="flex items-end hover:text-primary">
+                {/* <div className="flex items-end hover:text-primary">
                     <Link href="/Shop">SHOP</Link>
                     <ChevronDown size={14} className="font-light ml-1"/>
-                </div>
-                <div className="flex items-end hover:text-primary">
-                    <Link href="/categories">CATEGORIES</Link>
-                    <div className="rounded-md ml-1 px-1 text-white font-extralight bg-secondary text-xs">SALE</div>
-                    <ChevronDown size={14} className="font-light ml-1"/>
+                </div> */}
+                <div className="flex items-end hover:text-primary" onMouseEnter={(()=> setCatHover(true))} onMouseLeave={(()=> setCatHover(false))}>
+                    <Link href="/categories" className="cursor-pointer">CATEGORIES</Link>
+                    <div className="rounded-md ml-1 px-1 text-white cursor-pointer font-extralight bg-secondary text-xs">SALE</div>
+                    <ChevronDown size={14} className="font-light ml-1 cursor-pointer"/>
+                    {catHover && (
+                        <div className="absolute text-gray-800 top-3 z-50 mt-2 left-0 w-auto bg-white shadow-lg p-8">
+                            <div className="grid grid-cols-3 gap-8 mt-4">
+                                <div className="flex flex-col space-y-2">
+                                    <Link href="/"><h2 className="font-bold text-xl text-gray-600">Used Cars</h2></Link>
+                                        <ul className="text-sm text-gray-400 flex flex-col space-y-2">
+                                            <Link href="/"><li>Nissan</li></Link>
+                                            <Link href="/"><li>Suzuki</li></Link>
+                                        </ul>
+                                </div>
+                                <div className="flex flex-col space-y-2">
+                                    <Link href="/"><h2 className="font-bold text-xl text-gray-600">Spear Parts</h2></Link>
+                                        <ul className="text-sm text-gray-400 flex flex-col space-y-2">
+                                            <Link href="/"><li>Gear Box</li></Link>
+                                            <Link href="/"><li>Car Seats</li></Link>
+                                            <Link href="/"><li>Engines</li></Link>
+                                        </ul>
+                                </div>
+                                <div className="flex flex-col space-y-2">
+                                    <Link href="/"><h2 className="font-bold text-xl text-gray-600">Household Equipements</h2></Link>
+                                        <ul className="text-sm text-gray-400 flex flex-col space-y-2">
+                                            <Link href="/"><li>Single Bed</li></Link>
+                                            <Link href="/"><li>Family Family</li></Link>
+                                        </ul>
+                                </div>
+                                <div className="flex flex-col space-y-2">
+                                    <Link href="/"><h2 className="font-bold text-xl">Electronics</h2></Link>
+                                </div>
+                            </div>
+                        </div>
+                    )}
                 </div>
                 <div className="flex items-end hover:text-primary">
                 <Link href="/product">PRODUCTS</Link>
                 <div className="rounded-md ml-1 px-1 text-white font-extralight bg-tertiary text-xs">HOT</div>
                     <ChevronDown size={14} className="font-light ml-1"/>
                 </div>
-                <div className="flex items-end hover:text-primary">
+                {/* <div className="flex items-end hover:text-primary">
                 <Link href="/product">TOP DEALS</Link>
                     <ChevronDown size={14} className="font-light ml-1"/>
-                </div>
+                </div> */}
             </nav>
         </div>
     </div>

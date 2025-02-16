@@ -6,8 +6,8 @@ export default function TopBar() {
       <div className="container mx-auto flex justify-between items-center h-full px-4">
         {/* Left Section */}
         <div className="block text-center">
-          Get up to <span className="font-bold">25% cashout</span> on your first order: 
-          <span className="font-semibold"> GET25OFF</span> -{" "}
+          At <span className="font-bold">MG Smart Trading</span> we deliver 
+          <span className="font-semibold"> KICK START</span> -{" "}
           <Link href="/shop" className="underline">SHOP NOW</Link>
         </div>
 

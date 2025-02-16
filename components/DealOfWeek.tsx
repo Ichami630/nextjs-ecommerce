@@ -5,9 +5,9 @@ function DealOfWeek() {
     const products = [
         {
             id: 1,
-            image: "/banner1.jpg", // Replace with actual image path
+            image: "/products/bed1.jpg", // Replace with actual image path
             title: "Limited Edition Sneakers",
-            price: "$59.99",
+            price: 100,
             link: "/product",
             stars: 5,
             percentageDiscount: 25,
@@ -15,9 +15,9 @@ function DealOfWeek() {
         },
         {
             id: 2,
-            image: "/banner1.jpg", // Replace with actual image path
+            image: "/products/bed2.webp", // Replace with actual image path
             title: "Limited Edition Sneakers",
-            price: "$99.99",
+            price: 99.99,
             link: "/product",
             stars: 3,
             percentageDiscount: 50,
@@ -25,9 +25,9 @@ function DealOfWeek() {
         },
         {
             id: 3,
-            image: "/banner2.jpg", // Replace with actual image path
+            image: "/products/nissan.jpeg", // Replace with actual image path
             title: "Limited Edition Sneakers",
-            price: "$99.99",
+            price: 99.99,
             link: "/product",
             stars: 4,
             percentageDiscount: 10,
@@ -35,9 +35,9 @@ function DealOfWeek() {
         },
         {
             id: 4,
-            image: "/banner1.jpg", // Replace with actual image path
+            image: "/products/suzuki.jpeg", // Replace with actual image path
             title: "Limited Edition Sneakers",
-            price: "$109.99",
+            price: 109.99,
             link: "/product",
             stars: 5,
             percentageDiscount: 15,

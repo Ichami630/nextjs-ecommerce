@@ -1,6 +1,6 @@
 'use client';
 import Banner from "../../components/Banner";
-import QuantitySelector from "../../components/QuantitySelector";
+import QuantitySelector from "../../components/ui/QuantitySelector";
 import React, { useState } from "react";
 import Image from "next/image";
 import { Heart,ShieldCheck } from "lucide-react";
@@ -47,7 +47,7 @@ const products = [
     id: 1,
     image: "/banner2.jpg",
     title: "Pilot Automotive Universal Fit Black With Red Trim",
-    price: "$79",
+    price: 79,
     link: "/product",
     stars: 5,
     percentageDiscount: 0
@@ -56,7 +56,7 @@ const products = [
     id: 2,
     image: "/banner1.jpg",
     title: "Pilot Automotive Universal Fit Black With Red Trim",
-    price: "$79",
+    price: 79,
     link: "/product",
     stars: 5,
     percentageDiscount: 25
@@ -65,7 +65,7 @@ const products = [
     id: 3,
     image: "/banner2.jpg",
     title: "Pilot Automotive Universal Fit Black With Red Trim",
-    price: "$79",
+    price: 79,
     link: "/product",
     stars: 3,
     percentageDiscount: 50,
@@ -75,7 +75,7 @@ const products = [
     id: 4,
     image: "/banner1.jpg",
     title: "Pilot Automotive Universal Fit Black With Red Trim",
-    price: "$79",
+    price: 79,
     link: "/product",
     stars: 3,
     percentageDiscount: 0

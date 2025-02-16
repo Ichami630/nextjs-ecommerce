@@ -9,7 +9,8 @@ interface Product {
   id: number;
   image: string;
   title: string;
-  price: string;
+  price: number;
+  endPrice?: number;
   link: string;
   stars: number;
   percentageDiscount: number;
@@ -69,7 +70,7 @@ const ProductCard: React.FC<{ product: Product; showCountDown?: boolean }> = ({ 
 
       {/* Product Image */}
       <Link href={product.link} className="flex justify-center">
-        <div className="relative w-full h-[200px]">
+        <div className="relative w-full h-[200px] md:h-[250px]">
           <Image
             src={product.image}
             alt={product.title}
@@ -103,10 +104,15 @@ const ProductCard: React.FC<{ product: Product; showCountDown?: boolean }> = ({ 
       )}
 
       {/* Product Details */}
-      <Link href={product.link} className="hover:text-primary block mt-3">
+      <Link href={product.link} className="hover:text-primary block truncate whitespace-nowrap mt-3">
         {product.title}
       </Link>
-      <p className="text-primary font-bold">${product.price}</p>
+      <p className="text-primary text-xs md:text-sm font-bold">
+        {new Intl.NumberFormat("ja-JP", { style: "currency", currency: "JPY" }).format(product.price)} 
+        {product.endPrice !== undefined && (
+          <span> - {new Intl.NumberFormat("ja-JP", { style: "currency", currency: "JPY" }).format(product.endPrice)}</span>
+        )}
+      </p>
 
       {/* Star Rating */}
       <StarRating size={12} stars={product.stars} />
@@ -114,7 +120,7 @@ const ProductCard: React.FC<{ product: Product; showCountDown?: boolean }> = ({ 
       {/* Add to Cart Button */}
       <Link
         href={product.link}
-        className="p-2 text-sm rounded-full w-full lg:w-1/2 text-center bg-gray-400 hover:bg-primary text-white block mt-2 transition"
+        className="p-2 text-sm rounded-full w-full lg:w-3/4 text-center bg-gray-300 hover:bg-primary text-black font-bold flex justify-center mt-2 transition duration-500 ease-in-out"
       >
         ADD TO CART
       </Link>
