@@ -1,6 +1,8 @@
-import Link from "next/link";
-import StarRating from "./ui/StarRating";
+'use client';
 import ProductCard from "./ProductCard";
+import { useState } from "react";
+import { ListFilter } from "lucide-react";
+import ShopFilter from "./ui/ShopFilter";
 
 const products = [
   {
@@ -44,49 +46,29 @@ const products = [
   },
 ];
 const Shop:React.FC = () => {
+  const [openFilter, setOpenFilter] = useState(false);
   return (
     <div className="mx-4 my-10">
+      <div className="lg:hidden flex justify-between mb-4">
+        <div className="flex space-x-3 rounded-full bg-primary cursor-pointer p-2 justify-center hover:bg-black hover:text-white" onClick={()=>setOpenFilter(true)}>
+          <ListFilter />
+          <span>FILTER</span>
+        </div>
+      </div>
+      {/* filter and small and medium screen */}
+      {openFilter && (
+        <div className="fixed inset-0 bg-black z-50 bg-opacity-30">
+          <div className="fixed top-0 w-46 h-full overflow-auto left-0 bg-white p-4">
+            <div className="flex justify-end">
+              <p className="text-black text-xl cursor-pointer hover:text-primary mb-2" title="close filter" onClick={()=>setOpenFilter(false)}>X</p>
+            </div>
+            <ShopFilter />
+          </div>
+        </div>
+      )}
         <div className="grid lg:grid-cols-5 gap-8">
             <div className="hidden lg:block lg:col-span-1">
-                <div className="grid">
-                    <div className="border-gray-300 border-2 p-4">
-                        <div className="flex flex-col space-y-2">
-                            <h4 className="font-bold">Shop by Categories</h4>
-                            <ul className="flex flex-col space-y-2 text-sm text-gray-500">
-                            <li><Link href="/" className="hover:text-primary hover:underline">Our Store</Link></li>
-                            <li><Link href="/" className="hover:text-primary hover:underline">Use Cars</Link></li>
-                            <li><Link href="/" className="hover:text-primary hover:underline">Electronics</Link></li>
-                            <li><Link href="/" className="hover:text-primary hover:underline">Car Parts</Link></li>
-                            <li><Link href="/" className="hover:text-primary hover:underline">Household Equipements</Link></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="border-gray-300 border-2 p-4">
-                        <div className="flex flex-col space-y-2">
-                            <h4 className="font-bold">Filter by Price</h4>
-                            <ul className="flex flex-col space-y-2 text-sm text-gray-500">
-                            <li><Link href="/" className="hover:text-primary hover:underline">ALL</Link></li>
-                            <li><Link href="/" className="hover:text-primary hover:underline">$0 - $100</Link></li>
-                            <li><Link href="/" className="hover:text-primary hover:underline">$100 - $500</Link></li>
-                            <li><Link href="/" className="hover:text-primary hover:underline">$500 - $5000</Link></li>
-                            <li><Link href="/" className="hover:text-primary hover:underline">$5000 - $50000</Link></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div className="border-gray-300 border-2 p-4">
-                        <div className="flex flex-col space-y-2">
-                            <h4 className="font-bold">Average Rating</h4>
-                            <ul className="flex flex-col space-y-2 text-sm">
-                            <li><Link href="/" className=""><div className="flex flex-row space-x-1 items-center"><StarRating stars={5} size={13} /> <span className="text-gray-500 hover:text-primary hover:underline">(11)</span></div></Link></li>
-                            <li><Link href="/" className=""><div className="flex flex-row space-x-1 items-center"><StarRating stars={4} size={13} /> <span className="text-gray-500 hover:text-primary hover:underline">(20)</span></div></Link></li>
-                            <li><Link href="/" className=""><div className="flex flex-row space-x-1 items-center"><StarRating stars={3} size={13} /> <span className="text-gray-500 hover:text-primary hover:underline">(4)</span></div></Link></li>
-                            <li><Link href="/" className=""><div className="flex flex-row space-x-1 items-center"><StarRating stars={2} size={13} /> <span className="text-gray-500 hover:text-primary hover:underline">(8)</span></div></Link></li>
-                            <li><Link href="/" className=""><div className="flex flex-row space-x-1 items-center"><StarRating stars={1} size={13} /> <span className="text-gray-500 hover:text-primary hover:underline">(0)</span></div></Link></li>
-                            <li><Link href="/" className=""><div className="flex flex-row space-x-1 items-center"><StarRating size={13} /> <span className="text-gray-500 hover:text-primary hover:underline">(40)</span></div></Link></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                <ShopFilter />
             </div>
             <div className="col-span-4 lg:col-span-4">
                 <div className="grid grid-cols-2 lg:grid-cols-4">
