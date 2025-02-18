@@ -90,6 +90,7 @@ const productDetails = {
   reviewCount: 1,
   usage: "Push your gears to the red line with TH8S Shifter Add-On: the sim racing shifter for next-level racing immersion sensations. TH8S Shifter Add-On features an H-pattern shift plate with 7 gears plus reverse gear, with direct gear shifting, allowing it to adapt to all types of games and vehicles.",
   stock: 210,
+  mnmOrder: 1,
   deliver: "Upto 4 working Days"
 }
 const paymentIcons = [
@@ -149,7 +150,10 @@ const SingleProduct: React.FC = () => {
               </div>
             </div>
             <div className="text-gray-700">{productDetails.usage}</div>
-            <div className="text-gray-700"><span className="font-bold">{productDetails.stock}</span> in stock</div>
+            <div className="flex justify-between">
+              <div className="text-gray-700"><span className="font-bold">{productDetails.stock}</span> in stock</div>
+              <div className="text-gray-700 mr-4"><span>Mnm Order:</span><span className="font-bold"> {productDetails.mnmOrder}</span></div>
+            </div>
             <div className="flex space-x-4 items-center flex-wrap">
               <QuantitySelector />
               <button className="rounded-full min-h-12 bg-primary text-black hover:text-white hover:bg-black px-12 font-bold text-xs">ADD TO CART</button>

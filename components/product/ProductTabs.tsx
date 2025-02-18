@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import { Tab } from '@headlessui/react'
 import ProductReviews from './ProductReviews';
+import ProductDescTab from './ProductDescTab';
 
 const ProductTabs = () => {
     const [selectedIndex, setSelectedIndex] = useState(2);
@@ -33,12 +34,24 @@ const ProductTabs = () => {
     },
     ]
     }
+
+    //description data
+    const description = {
+      id: 1,
+      about: "The Easy One Touch 5 Dash and Windshield Mount is the next generation of our best-selling, universal smartphone car mount. Engineered to safely enhance your driving experience, the Easy One Touch 5 features our patented Easy One Touch mechanism, which allows you to lock and release smartphones quickly with an easy one handed motion. Recognized for its superior quality and sleek design, the new Easy One Touch 5 series includes a new finish that complements modern automotive interiors.",
+      technicalDetails: [
+        { name: "Manufacturer", value: "Lisle",},
+        {name: "Brand",value: "Lisle"},{name: "Product Dimemsions", value: "27.94 x 27.94 x 12.7 cm; 861.83 Grams"},
+        {name: "Item model number", value: "25750"},{name: "Manufacturer Part Number", value: "25750"},
+        {name: "Country of Origin", value: "USA"},{name: "Item Weight", value: "3 kg"}
+      ]
+    }
     return (
       <div className="px-4 mb-10">
         <Tab.Group selectedIndex={selectedIndex} onChange={setSelectedIndex}>
           {/* Tab List */}
           <Tab.List className="flex justify-start md:justify-center space-x-2 border-b whitespace-nowrap overflow-x-auto scrollbar-hide">
-            {['Description', 'Additional Information', `Reviews (${reviews.count})`].map((tab, index) => (
+            {['Description', `Reviews (${reviews.count})`].map((tab, index) => (
               <Tab key={index} className={({ selected }) =>
                 `px-4 py-2 text-lg font-medium flex-shrink-0 focus:outline-none ${
                   selected ? 'border-b-2 border-primary font-semibold' : 'text-gray-700'
@@ -52,10 +65,7 @@ const ProductTabs = () => {
           {/* Tab Panels */}
           <Tab.Panels className="mt-4">
             <Tab.Panel>
-              <ProductDescription />
-            </Tab.Panel>
-            <Tab.Panel>
-              <AdditionalInfo />
+              <ProductDescTab description={description} />
             </Tab.Panel>
             <Tab.Panel>
               <ProductReviews reviews={reviewData} />
@@ -65,43 +75,6 @@ const ProductTabs = () => {
       </div>
     )
   }
-  
-  // Description Component
-  const ProductDescription = () => (
-    <div className="p-4 bg-gray-100 rounded-lg">
-      <h3 className="text-xl font-bold">Product Description</h3>
-      <p>This product is made from high-quality materials and offers amazing benefits...</p>
-      <ul className="list-disc ml-5">
-        <li>Feature 1</li>
-        <li>Feature 2</li>
-        <li>Feature 3</li>
-      </ul>
-    </div>
-  )
-  
-  // Additional Info Component
-
-  const AdditionalInfo: React.FC = () => (
-    <div className="p-4 bg-gray-100 rounded-lg">
-      <h3 className="text-xl font-bold">Additional Information</h3>
-      <table className="w-full border-collapse border border-gray-300 mt-2">
-        <tbody>
-          <tr className="border border-gray-300">
-            <td className="p-2 font-semibold">Brand</td>
-            <td className="p-2">XYZ Brand</td>
-          </tr>
-          <tr className="border border-gray-300">
-            <td className="p-2 font-semibold">Weight</td>
-            <td className="p-2">500g</td>
-          </tr>
-          <tr className="border border-gray-300">
-            <td className="p-2 font-semibold">Manufacturer</td>
-            <td className="p-2">ABC Ltd.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  )
   
   export default ProductTabs
   
