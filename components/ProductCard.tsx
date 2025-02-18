@@ -62,7 +62,7 @@ const ProductCard: React.FC<{ product: Product; showCountDown?: boolean }> = ({ 
       {/* Percentage Discount */}
       {product.percentageDiscount > 0 && (
         <Link href={product.link}>
-          <div className="bg-primary text-white flex p-2 absolute top-6 left-6 z-50 text-xs font-bold w-10 h-10 justify-center items-center rounded-full">
+          <div className="bg-primary text-white flex p-2 absolute top-6 left-6 z-30 text-xs font-bold w-10 h-10 justify-center items-center rounded-full">
             -{product.percentageDiscount}%
           </div>
         </Link>
