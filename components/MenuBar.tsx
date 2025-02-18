@@ -13,6 +13,9 @@ export default function MenuBar() {
     //shop cat hover
     const [shopCatHover, setShopCatHover] = useState(false)
 
+    //login form
+    const [loginOpen, setLoginOpen] = useState(false);
+
     //category hover
     const [catHover, setCatHover] = useState(false);
   return (
@@ -92,7 +95,7 @@ export default function MenuBar() {
                         </form>
                     </Dialog.Panel>
                 </Dialog>
-                <Link href="/user"><User size={25} className="text-gray-500 hover:text-primary"/></Link>
+                <User onClick={()=>setLoginOpen(true)} size={25} className="text-gray-500 hover:text-primary cursor-pointer"/>
                 <div className="relative hidden lg:block">
                     <Link href="/wishlist"><Heart size={25} className="text-gray-500 hover:text-primary"/>
                     <div className="absolute bg-primary rounded-full px-2 bottom-4 left-1/2"><span className="wishlist_count">4</span></div></Link>
@@ -102,6 +105,33 @@ export default function MenuBar() {
                     <div className="absolute bg-primary rounded-full px-2 bottom-4 left-1/2"><span className="cart_count">0</span></div></Link>
                 </div>
             </div>
+            {loginOpen && (
+                <div className="fixed inset-0 bg-black bg-opacity-30 z-50 flex justify-center items-center">
+                <div className="bg-white p-6 rounded-md shadow-md w-96 relative">
+                  {/* Close button */}
+                  <button className="absolute top-2 right-2 text-gray-600 hover:text-primary text-xl" title="Close" onClick={() => setLoginOpen(false)}> &times;</button>
+              
+                  {/* Form */}
+                  <form>
+                    <div className="flex flex-col space-y-4">
+                      <label htmlFor="username">Username or Email <span className="text-red-600">*</span></label>
+                      <input type="text" id="username" required className="border p-2 rounded-md w-full"/>
+              
+                      <label htmlFor="password">Password <span className="text-red-600">*</span></label>
+                      <input type="password" id="password" required className="border p-2 rounded-md w-full"/>
+                      <button type="submit" className="bg-primary rounded-full hover:bg-black p-2 font-bold hover:text-white">LOGIN</button>
+                    </div>
+                  </form>
+                  <div className="flex-flex-col justify-center space-y-4">
+                    <div className="text-gray-400 underline mt-4 text-center hover:text-primary cursor-pointer">lost your password?</div>
+                    <span className="border-b-2 text-gray-400"></span>
+                    <div className="text-gray-400 text-center">Dont have an account yet? <span className="text-primary cursor-pointer hover:underline">Sign Up</span></div>
+                  </div>
+
+                </div>
+                </div>
+              
+            )}
         </div>
         {/* bottom level nav */}
         <div className="relative hidden lg:flex mb-5 items-center space-x-8">
