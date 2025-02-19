@@ -31,11 +31,12 @@ export default function MenuBar() {
                     <button className="absolute top-2 right-2" onClick={()=> setMenuOPen(false)}>
                         <X size={30} className="text-gray-900"/>
                     </button>
-                    <nav className="flex font-bold flex-col space-y-4 mt-12 ml-5">
-                        <Link className="hover:text-primary" href="/" onClick={()=> setMenuOPen(false)}>Home</Link>
-                        <Link className="hover:text-primary" href="/about">About Us</Link>
-                        <Link className="hover:text-primary" href="/shop">Shop</Link>
-                    </nav>
+                    <ul className="flex font-bold flex-col space-y-4 mt-12 ml-5">
+                    <li><Link className="hover:text-primary" href="/" onClick={()=> setMenuOPen(false)}>Home</Link></li>
+                    <li><Link className="hover:text-primary" href="/about" onClick={()=> setMenuOPen(false)}>About Us</Link></li>
+                    <li><Link className="hover:text-primary" href="/contact" onClick={()=> setMenuOPen(false)}>Contact Us</Link></li>
+                    <li><Link className="hover:text-primary" href="/shop" onClick={()=> setMenuOPen(false)}>Shop</Link></li>
+                    </ul>
                 </div>
             )}
             <Link href="/"><div className="logo flex space-x-0 md:space-x-2 items-center">
