@@ -1,7 +1,7 @@
 "use client";
 import { Disclosure } from "@headlessui/react";
 import { ChevronUp } from "lucide-react";
-import Banner from "../../components/Banner";
+import Banner from "../../../components/Banner";
 const faqs = [
   {
     question: "What types of products do you sell?",

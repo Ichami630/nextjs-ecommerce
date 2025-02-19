@@ -1,12 +1,12 @@
 'use client';
-import Banner from "../../components/Banner";
-import QuantitySelector from "../../components/ui/QuantitySelector";
+import Banner from "../../../components/Banner";
+import QuantitySelector from "../../../components/ui/QuantitySelector";
 import React, { useState } from "react";
 import Image from "next/image";
 import { Heart,ShieldCheck } from "lucide-react";
-import ProductTabs from "../../components/product/ProductTabs";
-import StarRating from "../../components/ui/StarRating";
-import ProductCard from "../../components/ProductCard";
+import ProductTabs from "../../../components/product/ProductTabs";
+import StarRating from "../../../components/ui/StarRating";
+import ProductCard from "../../../components/ProductCard";
 
 //define the product images interface
 interface Images {

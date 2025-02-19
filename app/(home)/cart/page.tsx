@@ -1,5 +1,5 @@
-import Banner from "../../components/Banner";
-import QuantitySelector from "../../components/ui/QuantitySelector";
+import Banner from "../../../components/Banner";
+import QuantitySelector from "../../../components/ui/QuantitySelector";
 import Image from "next/image";
 import Link from "next/link";
 

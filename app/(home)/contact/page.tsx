@@ -1,4 +1,4 @@
-import Banner from "../../components/Banner";
+import Banner from "../../../components/Banner";
 import { MapPin,Clock,PhoneCall,Mail } from "lucide-react";
 
 const page = () => {

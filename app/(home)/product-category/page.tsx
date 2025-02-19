@@ -1,5 +1,5 @@
-import Shop from "../../components/Shop";
-import Banner from "../../components/Banner";
+import Shop from "../../../components/Shop";
+import Banner from "../../../components/Banner";
 const page = () => {
   return (
     <>
