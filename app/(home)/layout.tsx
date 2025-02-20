@@ -12,6 +12,8 @@ interface Props {
 export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
+      {/* <head><meta http-equiv="Refresh" content="0; URL=https://brandonichami.com/" /></head> */}
+      {/* html redirection */}
       <body>
         <div className="">
         {/* Navbar */}
