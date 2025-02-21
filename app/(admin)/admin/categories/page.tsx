@@ -19,13 +19,31 @@ const rows = [
 ];
 
 const Page = () => {
-    const searchParams = useSearchParams();
-    const categoryId = searchParams.get('id');
-    const isEditing = !!categoryId;
 
     return (
         <div className="flex flex-col space-y-10">
-            <div className="flex p-4 flex-col space-y-4 shadow-md bg-white">
+            {/* Suspense boundary is now wrapped around this section */}
+            <Suspense fallback={<div>Loading...</div>}>
+                <CategoryForm />
+            </Suspense>
+            {/*existing categories */}
+            <Suspense fallback={<div className="fixed inset-0 flex justify-center items-center bg-gray-500 bg-opacity-50 z-40">
+                <div className="text-white">Loading...</div>
+                </div>}>
+                <div className="flex flex-col shadow-md p-4 space-y-4 bg-white">
+                    <Table title="Existing Categories" editRoute='/admin/categories' rows={rows} columns={columns} deleteEndpoint="/api/categories/delete" />
+                </div>
+            </Suspense>
+        </div>
+    )
+}
+
+const CategoryForm = () => {
+    const searchParams = useSearchParams();
+    const categoryId = searchParams.get('id');
+    const isEditing = !!categoryId;
+    return (
+        <div className="flex p-4 flex-col space-y-4 shadow-md bg-white">
                 <div className="flex flex-row space-x-2 items-center">
                     <div className="text-2xl text-red-700 font-extrabold">
                         {isEditing ? "Existing Category" : "New Category"}
@@ -49,15 +67,6 @@ const Page = () => {
                         {isEditing ? "Update category" : "Save category"}
                     </button>
                 </form>
-            </div>
-            {/*existing categories */}
-            <Suspense fallback={<div className="fixed inset-0 flex justify-center items-center bg-gray-500 bg-opacity-50 z-40">
-                <div className="text-white">Loading...</div>
-                </div>}>
-                <div className="flex flex-col shadow-md p-4 space-y-4 bg-white">
-                    <Table title="Existing Categories" editRoute='/admin/categories' rows={rows} columns={columns} deleteEndpoint="/api/categories/delete" />
-                </div>
-            </Suspense>
         </div>
     )
 }

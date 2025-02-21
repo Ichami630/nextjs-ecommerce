@@ -20,10 +20,10 @@ const Sidebar = ({ isOpen, toggleSidebar }: SidebarProps) => {
   return (
     <>
       {/* Sidebar Overlay for Mobile */}
-      <div className={`lg:hidden fixed inset-0 bg-gray-800 bg-opacity-50 ${isOpen ? 'block' : 'hidden'}`} onClick={toggleSidebar}></div>
+      <div className={`lg:hidden fixed inset-0 bg-gray-800  bg-opacity-50 ${isOpen ? 'block' : 'hidden'}`} onClick={toggleSidebar}></div>
 
       {/* Sidebar Content */}
-      <aside className={`lg:w-64 w-56 bg-white shadow-md p-5 flex flex-col fixed h-full ${isOpen ? 'lg:block' : 'hidden lg:block'}`}>
+      <aside className={`lg:w-64 w-56 z-50 bg-white shadow-md p-5 flex flex-col fixed h-full ${isOpen ? 'lg:block' : 'hidden lg:block'}`}>
         {/* Logo */}
         <Link href="/" onClick={toggleSidebar}>
           <div className="flex space-x-2 items-center">
