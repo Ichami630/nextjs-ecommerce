@@ -8,9 +8,17 @@ import Button from '@mui/material/Button';
 import { Edit, Trash2 } from 'lucide-react';
 import { DataGrid, GridColDef, GridRowSelectionModel } from '@mui/x-data-grid';
 
+interface Rows {
+    id: number;
+    categoryName?: string;
+    productName?: string;
+    category?: string;
+    slug: string;
+    dateAdded: string;
+}
 interface TableProps {
   title: string;
-  rows: any[];
+  rows: Rows[];
   columns: GridColDef[];
   editRoute: string;
   deleteEndpoint: string;
