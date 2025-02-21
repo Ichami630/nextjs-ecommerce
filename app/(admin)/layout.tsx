@@ -34,7 +34,7 @@ const Layout = ({ children }: Props) => {
   return (
     <html lang='en'>
       <body className="font-body">
-        <div className="flex h-screen">
+        <div className="flex min-h-screen">
           {/* Sidebar Component */}
           <Sidebar isOpen={sidebarOpen} toggleSidebar={toggleSidebar} />
 

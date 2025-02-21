@@ -84,14 +84,14 @@ const Sidebar = ({ isOpen, toggleSidebar }: SidebarProps) => {
           {productOpen && (
             <div className="ml-4 flex flex-col space-y-2">
               <li>
-                <Link href="/admin/products/add" onClick={() => { if (isOpen) toggleSidebar(); }}
-                  className={`hover:text-primary ${pathname === "/admin/products/add" ? "text-primary font-bold" : ""}`}>
+                <Link href="/admin/products" onClick={() => { if (isOpen) toggleSidebar(); }}
+                  className={`hover:text-primary ${pathname === "/admin/products" ? "text-primary font-bold" : ""}`}>
                   <span>Add Product</span>
                 </Link>
               </li>
               <li>
-                <Link href="/admin/products" onClick={() => { if (isOpen) toggleSidebar(); }}
-                  className={`hover:text-primary ${pathname === "/admin/products" ? "text-primary font-bold" : ""}`}>
+                <Link href="/admin/allproducts" onClick={() => { if (isOpen) toggleSidebar(); }}
+                  className={`hover:text-primary ${pathname === "/admin/allproducts" ? "text-primary font-bold" : ""}`}>
                   <span>All Products</span>
                 </Link>
               </li>

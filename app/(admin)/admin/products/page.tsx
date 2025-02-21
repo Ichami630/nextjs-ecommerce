@@ -1,8 +1,10 @@
-import React from 'react'
+import Product from "../../../../components/admin/Product"
 
 const page = () => {
   return (
-    <div>product testing</div>
+    <>
+    <Product/>
+    </>
   )
 }
 
