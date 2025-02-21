@@ -17,6 +17,9 @@ interface Rows {
     sliderTitle?: string;
     status?: string;
     slug?: string;
+    clientName?: string;
+    caption?: string;
+    title?: string;
     dateAdded: string;
 }
 interface TableProps {
@@ -69,7 +72,7 @@ const Table: React.FC<TableProps> = ({ title, rows, columns, editRoute,deleteEnd
             {
               field: 'actions',
               headerName: 'Actions',
-              width: 120,
+              width: 80,
               sortable: false,
               renderCell: (params) => (
                 <IconButton title="Edit" onClick={() => handleEdit(params.row.id)} color="primary">
