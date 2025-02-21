@@ -47,7 +47,7 @@ const Table: React.FC<TableProps> = ({ title, rows, columns, editRoute,deleteEnd
     <>
       <div className="text-xl text-red-600 font-bold mb-4">{title}</div>
 
-      <Box sx={{ height: 400, width: '100%' }}>
+      <Box sx={{ height: 400, width: '100%',zIndex: 20 }}>
         {selectedRows.length > 0 && (
           <Button
             variant="contained"
@@ -60,6 +60,7 @@ const Table: React.FC<TableProps> = ({ title, rows, columns, editRoute,deleteEnd
           </Button>
         )}
 
+        <div className="overflow-x-auto">
         <DataGrid
           rows={rows}
           columns={[
@@ -90,6 +91,7 @@ const Table: React.FC<TableProps> = ({ title, rows, columns, editRoute,deleteEnd
             setSelectedRows(newSelection as number[]);
           }}
         />
+        </div>
       </Box>
     </>
   );
