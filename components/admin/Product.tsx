@@ -17,7 +17,14 @@ const Product = () => {
         </div>
     </div>
     <div className="p-4 bg-white shadow-md my-10">
-        <div className="text-center text-primary text-2xl">Product Details</div>
+        <div className="flex flex-row space-x-2 items-center">
+            <div className="text-2xl text-red-700 font-extrabold">
+                New Product
+            </div>
+            <Link title='new category' href="/admin/categories" className='border-2 bg-gray-400 p-1'>
+                <Plus size={14} />
+            </Link>
+        </div>
         <div className="text-xs text-gray-400 text-center mb-4">All fields marked with <span className="text-red-600">*</span> are required</div>
         <form action="">
             <div className="flex flex-col space-y-4">
