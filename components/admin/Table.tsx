@@ -20,6 +20,7 @@ interface Rows {
     clientName?: string;
     caption?: string;
     title?: string;
+    brandName?: string;
     dateAdded: string;
 }
 interface TableProps {
@@ -53,7 +54,7 @@ const Table: React.FC<TableProps> = ({ title, rows, columns, editRoute,deleteEnd
     <>
       <div className="text-xl text-red-600 font-bold mb-4">{title}</div>
 
-      <Box sx={{ height: 400, width: '100%',zIndex: 1,overflowX: 'auto' }}>
+      <Box sx={{ height: 400, width: '100%',overflowX: 'auto',maxWidth: '100vw', zIndex: 1}}>
         {selectedRows.length > 0 && (
           <Button
             variant="contained"
@@ -65,6 +66,7 @@ const Table: React.FC<TableProps> = ({ title, rows, columns, editRoute,deleteEnd
             Delete Selected ({selectedRows.length})
           </Button>
         )}
+        <div style={{ width: 'max-content', minWidth: '100%' }}>
         <DataGrid
           rows={rows}
           columns={[
@@ -72,7 +74,7 @@ const Table: React.FC<TableProps> = ({ title, rows, columns, editRoute,deleteEnd
             {
               field: 'actions',
               headerName: 'Actions',
-              width: 80,
+              width: 150,
               sortable: false,
               renderCell: (params) => (
                 <IconButton title="Edit" onClick={() => handleEdit(params.row.id)} color="primary">
@@ -95,6 +97,7 @@ const Table: React.FC<TableProps> = ({ title, rows, columns, editRoute,deleteEnd
             setSelectedRows(newSelection as number[]);
           }}
         />
+        </div>
       </Box>
     </>
   );

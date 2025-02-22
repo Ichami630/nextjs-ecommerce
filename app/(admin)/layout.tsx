@@ -44,7 +44,7 @@ const Layout = ({ children }: Props) => {
             <Navbar toggleSidebar={toggleSidebar} />
 
             {/* Main content */}
-            <main className="flex-grow bg-gray-100 p-6">
+            <main className="flex-grow bg-gray-100 p-6 flex flex-col min-h-[calc(100vh-100px)]">
               {children}
             </main>
 

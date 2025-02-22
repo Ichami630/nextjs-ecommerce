@@ -36,7 +36,7 @@ const Page = () => {
             <Suspense fallback={<div className="fixed inset-0 flex justify-center items-center bg-gray-500 bg-opacity-50 z-40">
                 <div className="text-white">Loading...</div>
                 </div>}>
-                <div className="flex flex-col shadow-md p-4 space-y-4 bg-white">
+                <div className="flex flex-col shadow-md p-4 space-y-4 bg-white overflow-hidden w-full">
                     <Table title="Existing Categories" editRoute='/admin/categories' rows={rows} columns={columns} deleteEndpoint="/api/categories/delete" />
                 </div>
             </Suspense>

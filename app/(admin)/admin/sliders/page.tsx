@@ -23,8 +23,8 @@ const columns: GridColDef[] = [
         ),
     },
     { field: 'sliderTitle', headerName: 'Slider Title', width: 200 },
-    { field: 'status', headerName: 'Status', width: 100 },
-    { field: 'dateAdded', headerName: 'Date Added', width: 100 },
+    { field: 'status', headerName: 'Status', width: 150 },
+    { field: 'dateAdded', headerName: 'Date Added', width: 150 },
 ];
 
 //datatable values
