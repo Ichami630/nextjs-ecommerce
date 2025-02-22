@@ -1,10 +1,28 @@
+"use client"
 import Image from "next/image"
+import { useRouter } from "next/navigation"
+import {toast} from "react-toastify"
+import {login} from "../../../../utils/authServer"
 
-const page = () => {
+const Page = () => {
+  const route = useRouter()
+  //handling form submittion
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault() //prevents default form action (page refresh)
+    const formData = new FormData(e.currentTarget); //get form input values
+    const result = await login(formData); //calls server action
+
+    if(result.success){
+      localStorage.setItem("isAuthenticated","true");
+      route.push("/admin") //redirect to admin page on successful login
+    }else{
+      toast.error(result.message); //displays error notification
+    }
+  }
     return (
         <div className="flex justify-center items-center h-screen bg-gray-100">
           <div className="shadow-md rounded-md p-8 bg-white mx-4">
-            <form action="">
+            <form onSubmit={handleSubmit}>
               {/* Logo & Title */}
               <div className="flex space-x-3 items-center justify-center mb-4">
                 <Image src="/logo.webp" alt="logo" width={75} height={75} />
@@ -25,6 +43,7 @@ const page = () => {
                 <input
                   type="text"
                   id="username"
+                  name="username"
                   required
                   className="border p-2 rounded-md w-full"
                 />
@@ -36,6 +55,7 @@ const page = () => {
                   type="password"
                   id="password"
                   required
+                  name="password"
                   className="border p-2 rounded-md w-full"
                 />
       
@@ -58,4 +78,4 @@ const page = () => {
       
 }
 
-export default page
+export default Page

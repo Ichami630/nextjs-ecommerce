@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname,useRouter } from 'next/navigation';
 import {
   LogOut, SlidersHorizontal, Images, MessageSquareCode, ShoppingCart,
   ShoppingBasket, ChevronRight, ChevronUp,
@@ -17,6 +17,12 @@ interface SidebarProps {
 const Sidebar = ({ isOpen, toggleSidebar }: SidebarProps) => {
   const [productOpen, setProductOpen] = useState(false);
   const pathname = usePathname(); // Get current path
+  const route = useRouter()
+
+  const handleLogout = () => {
+    localStorage.setItem("isAuthenticated","");
+    route.push("/admin/login");
+  }
 
   return (
     <>
@@ -34,7 +40,7 @@ const Sidebar = ({ isOpen, toggleSidebar }: SidebarProps) => {
         </Link>
 
         {/* Logout */}
-        <div title='logout' className="flex mt-4 items-center cursor-pointer space-x-4 text-red-600">
+        <div title='logout' className="flex mt-4 items-center cursor-pointer space-x-4 text-red-600" onClick={handleLogout}>
           <LogOut size={20} />
           <div className="font-bold text-sm">LOGOUT</div>
         </div>

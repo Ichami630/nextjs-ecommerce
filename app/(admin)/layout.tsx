@@ -1,20 +1,31 @@
 // (admin)/layout.tsx
 'use client';
-import { ReactNode, useState } from 'react';
-import { usePathname } from 'next/navigation';
+import { ReactNode, useState,useEffect } from 'react';
+import { usePathname,useRouter } from 'next/navigation';
 import Sidebar from '../../components/admin/Sidebar';
 import Navbar from '../../components/admin/Navbar';
 import Footer from '../../components/admin/Footer';
 import '../globals.css';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 interface Props {
   children: ReactNode;
 }
 
 const Layout = ({ children }: Props) => {
+  const route = useRouter()
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const pathName = usePathname();
   const loginPathName = pathName.startsWith("/admin/login");
+
+  useEffect(()=>{
+    const isAuthenticated = localStorage.getItem("isAuthenticated");
+
+  if(pathName.startsWith("/admin") && !loginPathName && !isAuthenticated){
+    route.push("/admin/login");
+  }
+  },[pathName,route,loginPathName])
 
   if (loginPathName) {
     return (
@@ -23,6 +34,7 @@ const Layout = ({ children }: Props) => {
           <div className="flex flex-col h-screen">
             {children}
           </div>
+          <ToastContainer />
         </body>
       </html>
     );
@@ -49,6 +61,7 @@ const Layout = ({ children }: Props) => {
             </main>
 
             {/* Footer Component */}
+            <ToastContainer />
             <Footer />
           </div>
         </div>
