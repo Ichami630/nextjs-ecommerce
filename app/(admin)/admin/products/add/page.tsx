@@ -92,20 +92,33 @@ const Page = () => {
         </div>
     </div>
     {/* Suspense boundary is now wrapped around this section */}
-    <Suspense fallback={<div>Loading product variation...</div>}>
+    <Suspense fallback={<div>Loading product details...</div>}>
         <FormCard fields={fields} title='Product' pageRoute='/admin/products/add' />
+    </Suspense>
     {/*shows product variation only when id is parse */}
-    {id && (
-      <div id="productVariation" className="my-10">
-      {/*existing categories */}
-          <div className="flex flex-col shadow-md p-4 space-y-4 max-w-6xl bg-white overflow-hidden">
-            <Table title="Existing Product Variations" editRoute={`/admin/products/add?id=${id}`} rows={rows} columns={columns} deleteEndpoint="/api/products/delete" />
-          </div>
-      </div>
-    )}
+    {/* Other components */}
+    <Suspense fallback={<div>Loading existing product variations...</div>} >
+      {id && <DataTable id={id} />}
     </Suspense>
     </>
   )
 }
 
 export default Page
+
+interface DataProps {
+  id: string;
+}
+
+export function DataTable({id}:DataProps) {
+  return (
+  <Suspense fallback={<div>Loading existing product variations....</div>}>
+    <div className="mt-4">
+    {/*existing product variations */}
+    <div className="flex flex-col shadow-md p-4 space-y-4 max-w-6xl bg-white overflow-hidden">
+      <Table title="Existing Product Variations" editRoute={`/admin/products/add?id=${id}`} rows={rows} columns={columns} deleteEndpoint="/api/products/delete" />
+    </div>
+    </div>
+  </Suspense>
+  )
+}
