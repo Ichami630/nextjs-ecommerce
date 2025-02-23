@@ -30,7 +30,7 @@ const rows = [
     { id: 1,variationImage: "/products/bed1.jpg", price: `50,000 ￥`, discountPrice: `49,000 ￥`, dateAdded: '2024-02-18' },
     { id: 2,variationImage: "/products/bed2.webp", price: `100,000 ￥`, discountPrice: `0 ￥`, dateAdded: '2024-02-18' },
   ];
-  
+
 const ProductDataTable = ({id}:DataProps) => {
     return (
         <Suspense fallback={<div>Loading existing product variations....</div>}>
