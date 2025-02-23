@@ -1,13 +1,13 @@
 'use client';
 import { GridColDef } from '@mui/x-data-grid';
 import Table from "../../../../../components/admin/Table"
-import { AlignJustify, Plus, Trash2 } from "lucide-react"
+import { AlignJustify, Plus} from "lucide-react"
 import FormCard from "../../../../../components/admin/FormCard"
 import Link from "next/link"
 import { useSearchParams } from 'next/navigation';
-import { Suspense,useState } from "react"
+import { Suspense } from "react"
 import Image from 'next/image';
-import {toast} from "react-toastify"
+// import {toast} from "react-toastify"
 
 //datatable columns
 const columns: GridColDef[] = [
@@ -47,34 +47,35 @@ const fields = [
 ]
 
 //page title and form fiels
-const variation = [
-  {type: "number", label: "Price", name: "price", required: true},
-  {type: "number", label: "Discount Price", name: "discount",placeholder: "default 0", required: false},
-  {type: "file", label: "Variation Image", name: "image", required: true},
-  {type: "textarea", label: "Description", name: "description", required: true},
-]
+// const variation = [
+//   {type: "number", label: "Price", name: "price", required: true},
+//   {type: "number", label: "Discount Price", name: "discount",placeholder: "default 0", required: false},
+//   {type: "file", label: "Variation Image", name: "image", required: true},
+//   {type: "textarea", label: "Description", name: "description", required: true},
+// ]
 
 
 const Page = () => {
   const searchParams = useSearchParams()
   const id = searchParams.get("id");//get id from the from url parameter
-  const pvid = searchParams.get("pvid") //get the pvid for variation section
-  const [details,setDetails] = useState([{name: "",value: ""}]); //for technical details
-  const addDetails = () => {
-    setDetails([...details,{name: "",value: ""}]); //add new tech detail row
-  }
-  const removeDetails = (index: number) => {
-    if(confirm("Are you sure you want to remove this from technical details?")){
-      setDetails(details.filter((_,i)=> i!==index));
-      toast.success("item removed from technical details")
-    }
-  }
+  // const pvid = searchParams.get("pvid") //get the pvid for variation section
+  // const [details,setDetails] = useState([{name: "",value: ""}]); //for technical details
+  // const addDetails = () => {
+  //   setDetails([...details,{name: "",value: ""}]); //add new tech detail row
+  // }
+  // const removeDetails = (index: number) => {
+  //   if(confirm("Are you sure you want to remove this from technical details?")){
+  //     setDetails(details.filter((_,i)=> i!==index));
+  //     toast.success("item removed from technical details")
+  //   }
+  // }
   //update the key-value pair technical details
-  const updateDetails = (index: number,field: "name" | "value",newString: string) => {
-    const updatedDetails = [...details];
-    updatedDetails[index][field] = newString;
-    setDetails(updatedDetails);
-  }
+  // const updateDetails = (index: number,field: "name" | "value",newString: string) => {
+  //   const updatedDetails = [...details];
+  //   updatedDetails[index][field] = newString;
+  //   setDetails(updatedDetails);
+  // }
+
 
   return (
     <>
