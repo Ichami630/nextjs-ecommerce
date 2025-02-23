@@ -95,6 +95,7 @@ const Page = () => {
         <FormCard fields={fields} title='Product' pageRoute='/admin/products/add' />
     </Suspense>
     {/*shows product variation only when id is parse */}
+    <Suspense fallback={<div>Loading...</div>}>
     {id && (
       <div id="productVariation" className="my-10">
         <div className="mb-10">
@@ -165,6 +166,7 @@ const Page = () => {
         </Suspense>
       </div>
     )}
+    </Suspense>
     </>
   )
 }
