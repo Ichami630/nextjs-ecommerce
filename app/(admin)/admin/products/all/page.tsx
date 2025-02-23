@@ -1,7 +1,8 @@
 import Link from "next/link"
 import { Plus } from "lucide-react"
 import { GridColDef } from '@mui/x-data-grid';
-import Table from "../../../../components/admin/Table"
+import Table from "../../../../../components/admin/Table"
+import { Suspense } from "react";
 
 const columns: GridColDef[] = [
     { field: 'id', headerName: 'ID', width: 70 },
@@ -25,7 +26,9 @@ const page = () => {
           <div className="font-bold">Add Product</div>
         </Link>
         </div>
-      <Table title="All Products" deleteEndpoint="api/products/delete" rows={rows} columns={columns} editRoute="/admin/products" />
+        <Suspense fallback={<div>loading....</div>}>
+          <Table title="All Products" deleteEndpoint="api/products/delete" rows={rows} columns={columns} editRoute="/admin/products/add" />
+        </Suspense>
     </>
   )
 }

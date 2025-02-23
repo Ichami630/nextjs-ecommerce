@@ -1,7 +1,7 @@
 'use client';
 import * as React from 'react';
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
+import { useRouter,useSearchParams } from 'next/navigation';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
@@ -34,9 +34,15 @@ interface TableProps {
 const Table: React.FC<TableProps> = ({ title, rows, columns, editRoute,deleteEndpoint }) => {
   const router = useRouter();
   const [selectedRows, setSelectedRows] = useState<number[]>([]);
+  const searchParams = useSearchParams() //search for available pvid
+  const pvid = searchParams.get("pvid"); //now we use this pvid just below
 
   const handleEdit = (id: number) => {
-    router.push(`${editRoute}?id=${id}`);
+    if(editRoute === `/admin/products/add?id=${id}` || pvid !== null){
+      router.push(`${editRoute}&pvid=${id}`);
+    }else{
+      router.push(`${editRoute}?id=${id}`);
+    }
   };
 
   const handleBulkDeletion = () => {
@@ -54,7 +60,7 @@ const Table: React.FC<TableProps> = ({ title, rows, columns, editRoute,deleteEnd
     <>
       <div className="text-xl text-red-600 font-bold mb-4">{title}</div>
 
-      <Box sx={{ height: 400, width: '100%',overflowX: 'auto',maxWidth: '100vw', zIndex: 1}}>
+      <Box sx={{ height: 'auto', width: '100%',overflowX: 'auto',maxWidth: '100vw', zIndex: 1}}>
         {selectedRows.length > 0 && (
           <Button
             variant="contained"
@@ -74,7 +80,7 @@ const Table: React.FC<TableProps> = ({ title, rows, columns, editRoute,deleteEnd
             {
               field: 'actions',
               headerName: 'Actions',
-              width: 150,
+              width: 100,
               sortable: false,
               renderCell: (params) => (
                 <IconButton title="Edit" onClick={() => handleEdit(params.row.id)} color="primary">

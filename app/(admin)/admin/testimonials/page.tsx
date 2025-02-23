@@ -21,7 +21,7 @@ const columns: GridColDef[] = [
     { field: 'clientName', headerName: 'Client Name', width: 200 },
     { field: 'title', headerName: 'Title', width: 150 },
     { field: 'caption', headerName: 'Caption', width: 150 },
-    { field: 'dateAdded', headerName: 'Date Added', width: 150 },
+    { field: 'dateAdded', headerName: 'Date Added', width: 100 },
 ];
 
 //datatable values
@@ -52,7 +52,7 @@ const Page = () => {
             <Suspense fallback={<div className="fixed inset-0 flex justify-center items-center bg-gray-500 bg-opacity-50 z-40">
                 <div className="text-white">Loading...</div>
                 </div>}>
-                <div className="flex flex-col shadow-md p-4 space-y-4 w-full bg-white overflow-hidden">
+                <div className="flex flex-col shadow-md p-4 space-y-4 max-w-6xl bg-white overflow-hidden">
                     <Table title="Existing Testimonials" editRoute='/admin/testimonials' rows={rows} columns={columns} deleteEndpoint="/api/testimonials/delete" />
                 </div>
             </Suspense>

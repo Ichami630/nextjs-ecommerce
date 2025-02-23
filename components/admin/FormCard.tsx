@@ -40,12 +40,12 @@ const FormCard:React.FC<PageProps> = ({fields,title,pageRoute}) => {
         <form action="" className="mt-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {fields.map((field,index)=> (
-                    <div key={index} className="flex flex-col space-y-1 w-full">
+                    <div key={index} className={`flex flex-col space-y-1 ${field.type === "textarea" ? "col-span-1 md:col-span-2" : ""}`}>
                         <label htmlFor={field.label} className="text-gray-400">
                             {field.label} {field.required && (<span className="text-red-600">*</span>)}
                         </label>
                         {field.type === "textarea" ? (
-                            <textarea required={field.required} name={field.name} id="" cols={4} rows={3} className="border focus:outline-none w-full rounded-md p-2"></textarea>
+                            <textarea required={field.required} name={field.name} id="" cols={2} rows={5} className="border focus:outline-none w-full rounded-md p-2"></textarea>
                         ):field.type === "select" && field.options ? (
                             <select id={field.name} name={field.name} required={field.required} className="border focus:outline-none w-full rounded-md p-2">
                                 {field.options.map((option, idx)=>(
