@@ -5,7 +5,7 @@ import { AlignJustify, Plus, Trash2 } from "lucide-react"
 import FormCard from "../../../../../components/admin/FormCard"
 import Link from "next/link"
 import { useSearchParams } from 'next/navigation';
-import { Suspense,useState } from "react"
+import { Suspense,useState,useEffect } from "react"
 import Image from 'next/image';
 import {toast} from "react-toastify"
 
@@ -56,9 +56,15 @@ const variation = [
 
 
 const Page = () => {
-  const searchParams = useSearchParams()
-  const id = searchParams.get("id");//get id from the from url parameter
-  const pvid = searchParams.get("pvid") //get the pvid for variation section
+  const searchParams = useSearchParams();
+  const [id, setId] = useState<string | null>(null);
+  const [pvid, setPvid] = useState<string | null>(null);
+
+  useEffect(() => {
+    setId(searchParams.get("id"));
+    setPvid(searchParams.get("pvid"));
+  }, [searchParams]); // Ensure it updates when the params change
+  
   const [details,setDetails] = useState([{name: "",value: ""}]); //for technical details
   const addDetails = () => {
     setDetails([...details,{name: "",value: ""}]); //add new tech detail row
@@ -92,16 +98,13 @@ const Page = () => {
         </div>
     </div>
     {/* Suspense boundary is now wrapped around this section */}
-    <Suspense fallback={<div>Loading...</div>}>
+    <Suspense fallback={<div>Loading product variation...</div>}>
         <FormCard fields={fields} title='Product' pageRoute='/admin/products/add' />
-    </Suspense>
     {/*shows product variation only when id is parse */}
-    <Suspense fallback={<div>loading...</div>}>
     {id && (
       <div id="productVariation" className="my-10">
         <div className="mb-10">
         {/* Suspense boundary is now wrapped around this section */}
-        <Suspense fallback={<div>Loading...</div>}>
             <div className="flex p-4 flex-col space-y-4 shadow-md bg-white">
               <div className="flex flex-row space-x-2 items-center">
                 <div className="text-2xl text-red-700 font-extrabold">
@@ -155,16 +158,11 @@ const Page = () => {
                 </button>
               </form>
             </div>
-        </Suspense>
         </div>
       {/*existing categories */}
-        <Suspense fallback={<div className="fixed inset-0 flex justify-center items-center bg-gray-500 bg-opacity-50 z-40">
-          <div className="text-white">Loading...</div>
-        </div>}>
           <div className="flex flex-col shadow-md p-4 space-y-4 max-w-6xl bg-white overflow-hidden">
             <Table title="Existing Product Variations" editRoute={`/admin/products/add?id=${id}`} rows={rows} columns={columns} deleteEndpoint="/api/products/delete" />
           </div>
-        </Suspense>
       </div>
     )}
     </Suspense>
