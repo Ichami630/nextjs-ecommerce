@@ -4,6 +4,7 @@ import Link from "next/link";
 import { AlignJustify, Plus } from "lucide-react"
 import FormCard from "./FormCard";
 import ProductDataTable from "./ProductDataTable";
+import ProductVariation from "./ProductVariation";
 
 //page title and form fiels
 const fields = [
@@ -28,6 +29,7 @@ const Page = () => {
 const ProductPage = () => {
   const searchParams = useSearchParams();
   const id = searchParams.get("id"); // Get id from the URL parameter
+  const pvid = searchParams.get("pvid") //get the pvid for variation section
 
   return (
     <>
@@ -49,9 +51,11 @@ const ProductPage = () => {
         <FormCard fields={fields} title="Product" pageRoute="/admin/products/add" />
       </Suspense>
 
+
       {/* Render ProductDataTable only when id is present */}
       {id && (
         <Suspense fallback={<div>Loading existing product variations...</div>}>
+          <ProductVariation pvid={pvid} />
           <ProductDataTable id={id} />
         </Suspense>
       )}
