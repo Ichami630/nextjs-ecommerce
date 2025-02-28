@@ -6,7 +6,7 @@ import { usePathname,useRouter } from 'next/navigation';
 import {
   LogOut, SlidersHorizontal, Images, MessageSquareCode, ShoppingCart,
   ShoppingBasket, ChevronRight, ChevronUp,
-  Badge
+  Badge,Globe
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -109,6 +109,13 @@ const Sidebar = ({ isOpen, toggleSidebar }: SidebarProps) => {
               className={`flex flex-row space-x-3 items-center ${pathname === "/admin/brands" ? "text-primary font-bold" : "hover:text-primary"}`}>
               <Badge size={20} />
               <span>Brands</span>
+            </Link>
+          </li>
+          <li>
+            <Link href="/admin/info" onClick={() => { if (isOpen) toggleSidebar(); }}
+              className={`flex flex-row space-x-3 items-center ${pathname === "/admin/info" ? "text-primary font-bold" : "hover:text-primary"}`}>
+              <Globe size={20} />
+              <span>General Info</span>
             </Link>
           </li>
         </ul>
