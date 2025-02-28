@@ -1,6 +1,7 @@
 "use client"
 import { GridColDef } from '@mui/x-data-grid';
 import Table from "../../../../components/admin/Table"
+import { Suspense } from 'react';
 
 //datatable columns
 const columns: GridColDef[] = [
@@ -20,7 +21,9 @@ const page = () => {
   return (
     <div className="flex flex-col space-y-10">
       <div className="flex flex-col shadow-md p-4 space-y-4 max-w-6xl bg-white overflow-hidden">
+      <Suspense fallback={<div>loading....</div>}>
         <Table title="All orders" rows={rows} columns={columns} deleteEndpoint="/api/orders/delete" />
+      </Suspense>
       </div>
     </div>
   )
