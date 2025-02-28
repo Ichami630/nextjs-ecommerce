@@ -5,7 +5,7 @@ import { useRouter,useSearchParams } from 'next/navigation';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
-import { Edit, Trash2 } from 'lucide-react';
+import { Edit, Eye, Trash2 } from 'lucide-react';
 import { DataGrid, GridColDef, GridRowSelectionModel } from '@mui/x-data-grid';
 
 interface Rows {
@@ -21,13 +21,15 @@ interface Rows {
     caption?: string;
     title?: string;
     brandName?: string;
+    orderRef?: string;
+    invoiceTotal?: number;
     dateAdded: string;
 }
 interface TableProps {
   title: string;
   rows: Rows[];
   columns: GridColDef[];
-  editRoute: string;
+  editRoute?: string;
   deleteEndpoint: string;
 }
 
@@ -73,7 +75,8 @@ const Table: React.FC<TableProps> = ({ title, rows, columns, editRoute,deleteEnd
           </Button>
         )}
         <div style={{ width: 'max-content', minWidth: '100%' }}>
-        <DataGrid
+        {editRoute ? (
+          <DataGrid
           rows={rows}
           columns={[
             ...columns,
@@ -103,6 +106,39 @@ const Table: React.FC<TableProps> = ({ title, rows, columns, editRoute,deleteEnd
             setSelectedRows(newSelection as number[]);
           }}
         />
+        ):(
+          <DataGrid
+          rows={rows}
+          columns={[
+            ...columns,
+            {
+              field: 'actions',
+              headerName: 'Actions',
+              width: 80,
+              sortable: false,
+              renderCell: () => (
+                <div title='view order details'  className='text-secondary py-3 cursor-pointer'>
+                  <Eye />
+                </div>
+              ),
+            },
+          ]}
+          initialState={{
+            pagination: {
+              paginationModel: {
+                pageSize: 5,
+              },
+            },
+          }}
+          pageSizeOptions={[5]}
+          checkboxSelection
+          disableRowSelectionOnClick
+          onRowSelectionModelChange={(newSelection: GridRowSelectionModel) => {
+            setSelectedRows(newSelection as number[]);
+          }}
+        />
+        )
+        }
         </div>
       </Box>
     </>

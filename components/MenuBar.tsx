@@ -102,7 +102,7 @@ export default function MenuBar() {
                     <div className="absolute bg-primary rounded-full px-2 bottom-4 left-1/2"><span className="wishlist_count">4</span></div></Link>
                 </div>
                 <div className="relative">
-                    <Link href="/wishlist"><ShoppingCart size={25} className="text-gray-500 hover:text-primary"/>
+                    <Link href="/cart"><ShoppingCart size={25} className="text-gray-500 hover:text-primary"/>
                     <div className="absolute bg-primary rounded-full px-2 bottom-4 left-1/2"><span className="cart_count">0</span></div></Link>
                 </div>
             </div>
@@ -170,36 +170,36 @@ export default function MenuBar() {
                     <ChevronDown size={14} className="font-light ml-1"/>
                 </div> */}
                 <div className="flex items-end hover:text-primary" onMouseEnter={(()=> setCatHover(true))} onMouseLeave={(()=> setCatHover(false))}>
-                    <Link href="/categories" className="cursor-pointer">CATEGORIES</Link>
+                    <Link href="/shop" className="cursor-pointer">CATEGORIES</Link>
                     <div className="rounded-md ml-1 px-1 text-white cursor-pointer font-extralight bg-secondary text-xs">SALE</div>
                     <ChevronDown size={14} className="font-light ml-1 cursor-pointer"/>
                     {catHover && (
                         <div className="absolute text-gray-800 top-3 z-50 mt-2 left-0 w-auto bg-white shadow-lg p-8">
                             <div className="grid grid-cols-3 gap-8 mt-4">
                                 <div className="flex flex-col space-y-2">
-                                    <Link href="/"><h2 className="font-bold text-xl text-gray-600">Used Cars</h2></Link>
+                                    <Link href="/shop"><h2 className="font-bold text-xl text-gray-600">Used Cars</h2></Link>
                                         <ul className="text-sm text-gray-400 flex flex-col space-y-2">
-                                            <Link href="/"><li>Nissan</li></Link>
-                                            <Link href="/"><li>Suzuki</li></Link>
+                                            <Link href="/product"><li>Nissan</li></Link>
+                                            <Link href="/product"><li>Suzuki</li></Link>
                                         </ul>
                                 </div>
                                 <div className="flex flex-col space-y-2">
-                                    <Link href="/"><h2 className="font-bold text-xl text-gray-600">Spear Parts</h2></Link>
+                                    <Link href="/shop"><h2 className="font-bold text-xl text-gray-600">Spear Parts</h2></Link>
                                         <ul className="text-sm text-gray-400 flex flex-col space-y-2">
-                                            <Link href="/"><li>Gear Box</li></Link>
-                                            <Link href="/"><li>Car Seats</li></Link>
-                                            <Link href="/"><li>Engines</li></Link>
+                                            <Link href="/product"><li>Gear Box</li></Link>
+                                            <Link href="/product"><li>Car Seats</li></Link>
+                                            <Link href="/product"><li>Engines</li></Link>
                                         </ul>
                                 </div>
                                 <div className="flex flex-col space-y-2">
-                                    <Link href="/"><h2 className="font-bold text-xl text-gray-600">Household Equipements</h2></Link>
+                                    <Link href="/shop"><h2 className="font-bold text-xl text-gray-600">Household Equipements</h2></Link>
                                         <ul className="text-sm text-gray-400 flex flex-col space-y-2">
-                                            <Link href="/"><li>Single Bed</li></Link>
-                                            <Link href="/"><li>Family Family</li></Link>
+                                            <Link href="/product"><li>Single Bed</li></Link>
+                                            <Link href="/product"><li>Family Family</li></Link>
                                         </ul>
                                 </div>
                                 <div className="flex flex-col space-y-2">
-                                    <Link href="/"><h2 className="font-bold text-xl">Electronics</h2></Link>
+                                    <Link href="/shop"><h2 className="font-bold text-xl">Electronics</h2></Link>
                                 </div>
                             </div>
                         </div>

@@ -1,4 +1,4 @@
-import { Link } from "lucide-react"
+import Link from "next/link"
 import Banner from "../../../components/Banner"
 import Image from "next/image"
 
@@ -100,9 +100,7 @@ const page = () => {
                 <p className="text-gray-600 mt-2">
                     Need a vehicle, assistance with moving, or expert consultation? We’re here to help.
                 </p>
-                <Link href="/contact" className="inline-block mt-4 bg-primary text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-black transition">
-                    Contact Us Today
-                </Link>
+                <Link href="/contact" className="inline-block mt-4 bg-primary text-white px-6 py-3 rounded-md text-lg font-semibold hover:bg-black transition">Contact Us Today</Link>
             </section>
         </div>
     </>

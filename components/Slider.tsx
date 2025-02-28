@@ -37,7 +37,7 @@ const slides: Slide[] = [
     title: "Moving & Transportation Business",
     description: `Relocating, Transportation of Goods and services. 引越業及び運送業`,
     cta1: "Contact Us",
-    link: "/parts",
+    link: "/contact",
   },
   {
     id: 3,
@@ -45,7 +45,7 @@ const slides: Slide[] = [
     title: "Expert Consultation",
     description: `Consultation regarding business , education. travel etc. ビジネス、教育及び旅行等に関するコンサルテーション`,
     cta1: "Get in Touch",
-    link: "/consultation",
+    link: "/contact",
   },
 ];
 

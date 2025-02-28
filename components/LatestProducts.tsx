@@ -7,7 +7,7 @@ const products = [
     title: "Family Bed",
     price: 10000,
     endPrice: 70000,
-    link: "/household-equipement/product",
+    link: "product",
     stars: 0,
     percentageDiscount: 0
   },
@@ -17,7 +17,7 @@ const products = [
     title: "Single Bed",
     price: 5000,
     endPrice: 50000,
-    link: "/household-equipement/product",
+    link: "/product",
     stars: 2,
     percentageDiscount: 5
   },
